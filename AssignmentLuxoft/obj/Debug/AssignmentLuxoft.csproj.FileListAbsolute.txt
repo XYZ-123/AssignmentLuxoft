@@ -1,0 +1,2 @@
+c:\users\-\documents\visual studio 2013\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\AssignmentLuxoft.exe.config
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\AssignmentLuxoft.exe.config
