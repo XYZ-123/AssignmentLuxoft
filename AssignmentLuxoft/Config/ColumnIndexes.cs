@@ -7,7 +7,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace AssignmentLuxoft.Loaders
+using System;
+using System.Configuration;
+
+namespace AssignmentLuxoft.Config
 {
     /// <summary>
     /// The column indexes.
@@ -17,31 +20,31 @@ namespace AssignmentLuxoft.Loaders
         /// <summary>
         /// The date.
         /// </summary>
-        public const int Date = 0;
+        public static readonly int Date = Convert.ToInt32(ConfigurationManager.AppSettings["DateColumnIndex"]);
 
         /// <summary>
         /// The open.
         /// </summary>
-        public const int Open = 1;
+        public static readonly int Open = Convert.ToInt32(ConfigurationManager.AppSettings["OpenColumnIndex"]);
 
         /// <summary>
         /// The high.
         /// </summary>
-        public const int High = 2;
+        public static readonly int High = Convert.ToInt32(ConfigurationManager.AppSettings["HighColumnIndex"]);
 
         /// <summary>
         /// The low.
         /// </summary>
-        public const int Low = 3;
+        public static readonly int Low = Convert.ToInt32(ConfigurationManager.AppSettings["LowColumnIndex"]);
 
         /// <summary>
         /// The close.
         /// </summary>
-        public const int Close = 4;
+        public static readonly int Close = Convert.ToInt32(ConfigurationManager.AppSettings["CloseColumnIndex"]);
 
         /// <summary>
         /// The volume.
         /// </summary>
-        public const int Volume = 5;
+        public static readonly int Volume = Convert.ToInt32(ConfigurationManager.AppSettings["VolumeColumnIndex"]);
     }
 }

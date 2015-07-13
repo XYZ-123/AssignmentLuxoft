@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssignmentLuxoft", "AssignmentLuxoft\AssignmentLuxoft.csproj", "{CF3E79EA-06FB-4E61-8B23-ABC916F8FC26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssignmentLuxoftTests", "AssignmentLuxoftTests\AssignmentLuxoftTests.csproj", "{48BFDA42-C12E-4AE8-A8BC-22DDD4D0C65F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CF3E79EA-06FB-4E61-8B23-ABC916F8FC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF3E79EA-06FB-4E61-8B23-ABC916F8FC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF3E79EA-06FB-4E61-8B23-ABC916F8FC26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48BFDA42-C12E-4AE8-A8BC-22DDD4D0C65F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48BFDA42-C12E-4AE8-A8BC-22DDD4D0C65F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48BFDA42-C12E-4AE8-A8BC-22DDD4D0C65F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48BFDA42-C12E-4AE8-A8BC-22DDD4D0C65F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,6 +6,9 @@
 //   The TradeLoader interface.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
+using AssignmentLuxoft.Config;
+
 namespace AssignmentLuxoft.Contracts
 {
     using System;
@@ -21,6 +24,10 @@ namespace AssignmentLuxoft.Contracts
     /// </summary>
     public abstract class TradeLoaderBase
     {
+        protected TradeLoaderBase()
+        {
+            this.IsActive = true;
+        }
         /// <summary>
         ///     Gets the supported source type.
         /// </summary>

@@ -8,3 +8,8 @@ D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft_MarkupC
 D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft.g.resources
 D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft.Properties.Resources.resources
 D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft.csproj.GenerateResource.Cache
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\AssignmentLuxoft.exe
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\AssignmentLuxoft.pdb
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft.exe
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft.pdb
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft_MarkupCompile.lref

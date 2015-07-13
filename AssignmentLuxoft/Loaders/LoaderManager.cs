@@ -7,6 +7,11 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Configuration;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+
 namespace AssignmentLuxoft.Loaders
 {
     using System;
@@ -63,9 +68,44 @@ namespace AssignmentLuxoft.Loaders
             throw new NotSupportedException("Source type: " + sourceType + " is not supported");
         }
 
-        private void Initialize()
+        internal void Initialize()
         {
-            
+            this.Loaders.Clear();
+
+            // Loading internal loaders
+            this.Loaders.Add(new CsvTradeLoader());
+            this.Loaders.Add(new TextTradeLoader());
+            this.Loaders.Add(new XmlTradeLoader());
+
+            //Loading external loaders
+            var relativePath = ConfigurationManager.AppSettings["ExternalLoadersRelativePath"];
+            var fullPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), relativePath);
+
+            try
+            {
+                // Get dlls from plugin directory
+                var dllPaths = Directory.GetFiles(fullPath, "*.dll");
+
+                foreach (var dllPath in dllPaths)
+                {
+                    //Load types and iterate over them to find correct ones
+                    var assembly = Assembly.LoadFrom(dllPath);
+                    var types = assembly.GetTypes();
+                    
+                    foreach (var type in types)
+                    {
+                        if (type.IsClass && type.IsSubclassOf(typeof (TradeLoaderBase)))
+                        {
+                           this.Loaders.Add((TradeLoaderBase) Activator.CreateInstance(type));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+                Debug.WriteLine(ex.Message);
+            }
         }
     }
 }

@@ -1,0 +1,17 @@
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\AssignmentLuxoftTests.dll
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\AssignmentLuxoftTests.pdb
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\obj\Debug\AssignmentLuxoftTests.csprojResolveAssemblyReference.cache
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\obj\Debug\AssignmentLuxoftTests.dll
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\obj\Debug\AssignmentLuxoftTests.pdb
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\AssignmentLuxoft.exe
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\AssignmentLuxoft.pdb
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\xunit.execution.desktop.dll
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\xunit.abstractions.dll
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\xunit.assert.dll
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\xunit.core.dll
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\xunit.abstractions.xml
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\xunit.assert.pdb
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\xunit.assert.xml
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\xunit.core.pdb
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\xunit.core.xml
+D:\Projects\AssignmentLuxoft\AssignmentLuxoftTests\bin\Debug\AssignmentLuxoftTests.dll.config

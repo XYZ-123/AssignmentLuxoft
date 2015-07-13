@@ -50,7 +50,7 @@ namespace AssignmentLuxoft.Loaders
         /// </exception>
         /// <exception cref="InvalidDataException">
         /// </exception>
-        public async Task<List<Trade>> ExtractTrades(Stream source)
+        public override async Task<List<Trade>> ExtractTrades(Stream source)
         {
             if (source == null)
             {
