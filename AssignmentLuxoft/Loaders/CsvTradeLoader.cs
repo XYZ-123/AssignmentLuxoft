@@ -1,24 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AssignmentLuxoft.Contracts;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="CsvTradeLoader.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The csv trade loader.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace AssignmentLuxoft.Loaders
 {
-    public class CsvTradeLoader : ITradeLoader
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.IO;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Threading.Tasks;
+
+    using AssignmentLuxoft.Contracts;
+    using AssignmentLuxoft.Models;
+
+    /// <summary>
+    /// The csv trade loader.
+    /// </summary>
+    public class CsvTradeLoader : TradeLoaderBase
     {
-        public List<Models.Trade> ExtractTrades(System.IO.Stream source)
+
+        /// <summary>
+        /// Gets the supported source type.
+        /// </summary>
+        public override string SupportedSourceType
         {
-            throw new NotImplementedException();
+            get
+            {
+                return "csv";
+            }
         }
 
-        public string SupportedSourceType
+        // <summary>
+        /// The extract trades.
+        /// </summary>
+        /// <param name="source">
+        /// The source.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// </exception>
+        /// <exception cref="InvalidDataException">
+        /// </exception>
+        public async Task<List<Trade>> ExtractTrades(Stream source)
         {
-            get { return "Csv"; }
-        }
+            if (source == null)
+            {
+                throw new ArgumentNullException("source");
+            }
 
-        public bool IsActive { get; set; }
+            List<Trade> returnList = new List<Trade>();
+
+            using (var sr = new StreamReader(source))
+            {
+                while (sr.Peek() > -1)
+                {
+                    var line = sr.ReadLine().Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    try
+                    {
+                        var trade = this.ExtractTrade(line);
+                        returnList.Add(trade);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new InvalidDataException("Provided data is of invalid format", ex);
+                    }                  
+                }  
+            }
+
+            return returnList;
+        }
     }
 }

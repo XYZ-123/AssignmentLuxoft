@@ -1,49 +1,47 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Trade.cs" company="">
+// <copyright file="ColumnIndexes.cs" company="">
 //   
 // </copyright>
 // <summary>
-//   The trade.
+//   The column indexes.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace AssignmentLuxoft.Models
+namespace AssignmentLuxoft.Loaders
 {
-    using System;
-
     /// <summary>
-    /// The trade.
+    /// The column indexes.
     /// </summary>
-    public class Trade
+    public static class ColumnIndexes
     {
         /// <summary>
-        /// Gets or sets the date.
+        /// The date.
         /// </summary>
-        public DateTime Date { get; set; }
+        public const int Date = 0;
 
         /// <summary>
-        /// Gets or sets the open.
+        /// The open.
         /// </summary>
-        public decimal Open { get; set; }
+        public const int Open = 1;
 
         /// <summary>
-        /// Gets or sets the high.
+        /// The high.
         /// </summary>
-        public decimal High { get; set; }
+        public const int High = 2;
 
         /// <summary>
-        /// Gets or sets the low.
+        /// The low.
         /// </summary>
-        public decimal Low { get; set; }
+        public const int Low = 3;
 
         /// <summary>
-        /// Gets or sets the close.
+        /// The close.
         /// </summary>
-        public decimal Close { get; set; }
+        public const int Close = 4;
 
         /// <summary>
-        /// Gets or sets the volume.
+        /// The volume.
         /// </summary>
-        public long Volume { get; set; }
+        public const int Volume = 5;
     }
 }

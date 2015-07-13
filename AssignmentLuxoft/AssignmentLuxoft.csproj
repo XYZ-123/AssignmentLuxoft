@@ -61,9 +61,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Contracts\ITradeLoader.cs" />
+    <Compile Include="Contracts\TradeLoaderBase.cs" />
+    <Compile Include="Loaders\ColumnIndexes.cs" />
     <Compile Include="Loaders\CsvTradeLoader.cs" />
-    <Compile Include="Loaders\LoaderSelector.cs" />
+    <Compile Include="Loaders\LoaderManager.cs" />
     <Compile Include="Loaders\TextTradeLoader.cs" />
     <Compile Include="Loaders\XmlTradeLoader.cs" />
     <Compile Include="MainWindow.xaml.cs">
