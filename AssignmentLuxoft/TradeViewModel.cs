@@ -26,24 +26,24 @@ namespace AssignmentLuxoft
         /// <summary>
         /// Initializes a new instance of the <see cref="TradeViewModel"/> class.
         /// </summary>
-        public TradeViewModel(TimerService timerService, Dispatcher dispatcher)
+        public TradeViewModel(IMonitoringService monitoringService, Dispatcher dispatcher)
         {
-            if (timerService == null)
-                throw new ArgumentNullException("timerService");
+            if (monitoringService == null)
+                throw new ArgumentNullException("monitoringService");
 
             if (dispatcher == null)
                 throw new ArgumentNullException("dispatcher");
 
-            this.TimerService = timerService;
+            this.MonitoringService = monitoringService;
             this.Dispatcher = dispatcher;
-            this.Loaders = new ObservableCollection<TradeLoaderBase>(this.TimerService.LoaderManager.Loaders);
+            this.Loaders = new ObservableCollection<TradeLoaderBase>(this.MonitoringService.LoaderManager.Loaders);
             this.Files = new ObservableCollection<FileMetaInfo>();
             this.Results = new ObservableCollection<Trade>();
-            this.TimerService.OnNewFile += this.TimerService_OnNewFile;
-            this.TimerService.OnNewTrades += this.TimerService_OnNewTrades;
+            this.MonitoringService.OnNewFile += this.MonitoringServiceOnNewFile;
+            this.MonitoringService.OnNewTrades += this.MonitoringServiceOnNewTrades;
         }
 
-        void TimerService_OnNewTrades(object sender, TimerServiceNewTradesEventArgs e)
+        void MonitoringServiceOnNewTrades(object sender, MonitoringServiceNewTradesEventArgs e)
         {
             this.Dispatcher.Invoke(() =>
             {
@@ -54,7 +54,7 @@ namespace AssignmentLuxoft
             });
         }
 
-        private void TimerService_OnNewFile(object sender, TimerServiceNewFileEventArgs e)
+        private void MonitoringServiceOnNewFile(object sender, MonitoringServiceNewFileEventArgs e)
         {
             this.Dispatcher.Invoke(
                 () =>
@@ -63,7 +63,7 @@ namespace AssignmentLuxoft
                     });
         }
 
-        private TimerService TimerService;
+        private IMonitoringService MonitoringService;
 
         private Dispatcher Dispatcher;
 
@@ -81,7 +81,7 @@ namespace AssignmentLuxoft
         {
             get
             {
-                return TimerService.DirectoryToWatch;
+                return MonitoringService.DirectoryToWatch;
             }
         }
 
@@ -100,7 +100,7 @@ namespace AssignmentLuxoft
         {
             get
             {
-                return TimerService.Interval;
+                return MonitoringService.Interval;
             }
         }
     }

@@ -37,15 +37,15 @@ namespace AssignmentLuxoft
         {
             InitializeComponent();
 
-            this.TimerService = new TimerService(App.UnityContainer.Resolve<ILoaderManager>());
+            this.MonitoringService = new MonitoringService(App.UnityContainer.Resolve<ILoaderManager>());
 
-            this.TimerService.Interval = Convert.ToDouble(ConfigurationManager.AppSettings["FileSystemWatchInterval"]);
+            this.MonitoringService.Interval = Convert.ToDouble(ConfigurationManager.AppSettings["FileSystemWatchInterval"]);
 
-            this.TimerService.DirectoryToWatch = ConfigurationManager.AppSettings["DirectoryToWatch"];
+            this.MonitoringService.DirectoryToWatch = ConfigurationManager.AppSettings["DirectoryToWatch"];
 
-            this.DataContext = new TradeViewModel(this.TimerService, this.Dispatcher);
+            this.DataContext = new TradeViewModel(this.MonitoringService, this.Dispatcher);
         }
 
-        private TimerService TimerService{ get; set; }
+        private MonitoringService MonitoringService{ get; set; }
     }
 }

@@ -68,7 +68,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Contracts\ILoaderManager.cs" />
-    <Compile Include="TimerService.cs" />
+    <Compile Include="Contracts\IMonitoringService.cs" />
+    <Compile Include="MonitoringService.cs" />
     <Compile Include="TradeViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

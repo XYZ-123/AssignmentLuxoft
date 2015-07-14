@@ -12,23 +12,23 @@ namespace AssignmentLuxoft
     using AssignmentLuxoft.Contracts;
     using AssignmentLuxoft.Models;
 
-    public class TimerServiceNewFileEventArgs : EventArgs
+    public class MonitoringServiceNewFileEventArgs : EventArgs
     {
         public FileMetaInfo NewFile { get; set; }
     }
 
-    public class TimerServiceNewTradesEventArgs : EventArgs
+    public class MonitoringServiceNewTradesEventArgs : EventArgs
     {
         public List<Trade> Trades { get; set; }
     }
 
-    public class TimerService
+    public class MonitoringService : IMonitoringService
     {
         private Timer timer;
 
         private HashSet<string> files;
  
-        public TimerService(ILoaderManager loaderManager)
+        public MonitoringService(ILoaderManager loaderManager)
         {
             if (loaderManager == null)
                 throw new ArgumentNullException("loaderManager");
@@ -56,9 +56,9 @@ namespace AssignmentLuxoft
 
         public string DirectoryToWatch { get; set; }
 
-        public event EventHandler<TimerServiceNewFileEventArgs> OnNewFile = delegate { };
+        public event EventHandler<MonitoringServiceNewFileEventArgs> OnNewFile = delegate { };
 
-        public event EventHandler<TimerServiceNewTradesEventArgs> OnNewTrades = delegate { };
+        public event EventHandler<MonitoringServiceNewTradesEventArgs> OnNewTrades = delegate { };
 
         private void Tick(object sender, ElapsedEventArgs e)
         {
@@ -71,7 +71,7 @@ namespace AssignmentLuxoft
                 if (this.files.Add(filePath))
                 {
                     var newFile = new FileMetaInfo{Name = Path.GetFileName(filePath), Extension = Path.GetExtension(filePath)};
-                    this.OnNewFile(this, new TimerServiceNewFileEventArgs { NewFile = newFile });
+                    this.OnNewFile(this, new MonitoringServiceNewFileEventArgs { NewFile = newFile });
 
                     // No loader means - file type is not supported
                     var loader = this.LoaderManager.GetTradeLoader(newFile.Extension);
@@ -87,7 +87,7 @@ namespace AssignmentLuxoft
                                     {
                                         this.OnNewTrades(
                                             this,
-                                            new TimerServiceNewTradesEventArgs { Trades = task.Result });
+                                            new MonitoringServiceNewTradesEventArgs { Trades = task.Result });
                                     }
                                 });
                     }
