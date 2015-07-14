@@ -1,8 +1,18 @@
 ﻿<Application x:Class="AssignmentLuxoft.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:system="clr-namespace:System;assembly=System"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+         <sys:Double x:Key="FontSize">18</sys:Double>
+        <sys:String x:Key="DirectoryString">Watching directory:</sys:String>
+        <sys:String x:Key="FoundFileString">Found Files:</sys:String>
+        <sys:String x:Key="FrequencyString">With Frequency:</sys:String>
+        <sys:String x:Key="LoadersString">Available loaders:</sys:String>
+        <sys:String x:Key="LoadingString">Loading in progress:</sys:String>
+        <sys:String x:Key="LoadersListToolTip">Highlighted loaders will be used for incoming files</sys:String>
+        <BitmapImage x:Key="FileIcon" UriSource="Images/fileIcon.png"/>
+      
     </Application.Resources>
 </Application>

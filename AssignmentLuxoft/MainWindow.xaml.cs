@@ -17,10 +17,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AssignmentLuxoft.Loaders;
-using File = AssignmentLuxoft.Models.File;
 
 namespace AssignmentLuxoft
 {
+    using System.Collections.ObjectModel;
+
+    using AssignmentLuxoft.Contracts;
+    using AssignmentLuxoft.Models;
+
+    using Microsoft.Practices.Unity;
+    using Microsoft.Practices.Unity.Configuration;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -29,28 +36,16 @@ namespace AssignmentLuxoft
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new TradeViewModel();
-            CreateFileSystemWatcher();
-        }
-        private void CreateFileSystemWatcher()
-        {
-            var timer = new Timer
-            {
-                Interval = Convert.ToDouble(ConfigurationManager.AppSettings["FileSystemWatchInterval"])
-            };
-            timer.Elapsed += Tick;
-            timer.Start();
 
+            this.TimerService = new TimerService(App.UnityContainer.Resolve<ILoaderManager>());
+
+            this.TimerService.Interval = Convert.ToDouble(ConfigurationManager.AppSettings["FileSystemWatchInterval"]);
+
+            this.TimerService.DirectoryToWatch = ConfigurationManager.AppSettings["DirectoryToWatch"];
+
+            this.DataContext = new TradeViewModel(this.TimerService, this.Dispatcher);
         }
 
-        void Tick(object sender, ElapsedEventArgs e)
-        {
-           //Debug.Write(string.Join(",",Directory.GetFiles(((TradeViewModel)DataContext).DirectoryToWatch)));
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        private TimerService TimerService{ get; set; }
     }
 }

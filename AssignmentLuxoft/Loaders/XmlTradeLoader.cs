@@ -21,7 +21,7 @@ namespace AssignmentLuxoft.Loaders
         {
             get
             {
-                return "xml";
+                return ".xml";
             }
         }
 

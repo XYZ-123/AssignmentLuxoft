@@ -33,7 +33,7 @@ namespace AssignmentLuxoft.Loaders
         {
             get
             {
-                return "csv";
+                return ".csv";
             }
         }
 

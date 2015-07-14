@@ -13,3 +13,10 @@ D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\AssignmentLuxoft.pdb
 D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft.exe
 D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft.pdb
 D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\AssignmentLuxoft_MarkupCompile.lref
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\obj\Debug\App.baml
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+D:\Projects\AssignmentLuxoft\AssignmentLuxoft\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml

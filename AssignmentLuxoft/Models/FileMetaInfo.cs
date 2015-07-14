@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace AssignmentLuxoft.Models
 {
-    public class File
+    public class FileMetaInfo
     {
         public string Name { get; set; }
-        public string Path { get; set; }
         public string Extension { get; set; }
     }
 }

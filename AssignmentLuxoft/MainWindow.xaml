@@ -4,16 +4,51 @@
         xmlns:local="clr-namespace:AssignmentLuxoft" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
     x:Class="AssignmentLuxoft.MainWindow"
-        Title="TradeViewer" Height="600" Width="700" d:DataContext="{d:DesignInstance Type=local:TradeViewModel}">
+        Title="TradeViewer" Height="633.447" Width="700" d:DataContext="{d:DesignInstance Type=local:TradeViewModel}">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="86*"/>
-        </Grid.ColumnDefinitions>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="140.573,15,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <Label Content="{Binding DirectoryToWatch}" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Width="171" Grid.ColumnSpan="2" Cursor="Arrow"/>
-        <DataGrid HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" Height="342" Width="674" Grid.ColumnSpan="2"/>
-        <ListBox Grid.Column="1" ItemsSource="{Binding LoaderManager.Loaders}" DisplayMemberPath="SupportedSourceType"  HorizontalAlignment="Left" Height="182" Margin="286.8,15,0,0" VerticalAlignment="Top" Width="306"/>
+        <Label Content="{Binding DirectoryToWatch}" HorizontalAlignment="Right" Margin="0,49,474,0" VerticalAlignment="Top" Width="191" Cursor="Arrow" Height="31" FontSize="{StaticResource FontSize}" Grid.ColumnSpan="2"/>
+
+        <ListView  ToolTip="{StaticResource LoadersListToolTip}"  ItemsSource="{Binding Loaders}" Height="169" Margin="517,44,21,0" VerticalAlignment="Top" Width="154" FontSize="{StaticResource FontSize}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel HorizontalAlignment="Left"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding SupportedSourceType}"
+                      IsChecked="{Binding IsActive}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListView>
+
+        <Label Content="{StaticResource DirectoryString}" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="182"  FontSize="{StaticResource FontSize}"/>
+        <Label  Content="{StaticResource LoadersString}" HorizontalAlignment="Left" Margin="517,10,0,0" VerticalAlignment="Top" Width="143" FontSize="{StaticResource FontSize}"/>
+        <DataGrid ItemsSource="{Binding Results}" ColumnWidth="0.2*" HorizontalAlignment="Left" Margin="10,257,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="336" Width="672" Grid.RowSpan="2">
+
+        </DataGrid>
+
+        <ListView ItemsSource="{Binding Files}" HorizontalAlignment="Left" Height="169" Margin="204,44,0,0" VerticalAlignment="Top" Width="287">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel HorizontalAlignment="Left"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="32" Height="32" Source="{StaticResource FileIcon}" />
+                        <Label Content="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListView>
+
+        <Label Content="{StaticResource FrequencyString}" HorizontalAlignment="Left" Margin="22,90,0,0" VerticalAlignment="Top" Width="182"  FontSize="{StaticResource FontSize}"/>
+        <Label Content="{Binding CheckFrequency}" ContentStringFormat="{}{0} ms" HorizontalAlignment="Left" Margin="22,129,0,0" VerticalAlignment="Top" Width="196"  FontSize="{StaticResource FontSize}"/>
+        <Label Content="{StaticResource FoundFileString}" HorizontalAlignment="Left" Margin="204,5,0,0" VerticalAlignment="Top" Width="196"  FontSize="{StaticResource FontSize}"/>
+
+
 
     </Grid>
 </Window>

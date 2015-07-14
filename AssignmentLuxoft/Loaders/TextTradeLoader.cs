@@ -6,7 +6,6 @@
 //   The text trade loader.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-
 namespace AssignmentLuxoft.Loaders
 {
     using System;
@@ -18,18 +17,18 @@ namespace AssignmentLuxoft.Loaders
     using AssignmentLuxoft.Models;
 
     /// <summary>
-    /// The text trade loader.
+    ///     The text trade loader.
     /// </summary>
     public class TextTradeLoader : TradeLoaderBase
     {
         /// <summary>
-        /// Gets the supported source type.
+        ///     Gets the supported source type.
         /// </summary>
         public override string SupportedSourceType
         {
             get
             {
-                return "txt";
+                return ".txt";
             }
         }
 

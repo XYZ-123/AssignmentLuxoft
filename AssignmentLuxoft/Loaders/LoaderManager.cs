@@ -6,42 +6,49 @@
 //   The loader selector.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-
-using System.Configuration;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection;
-
 namespace AssignmentLuxoft.Loaders
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Reflection;
 
     using AssignmentLuxoft.Contracts;
 
+    using Microsoft.Practices.Unity;
+
     /// <summary>
-    /// The loader selector.
+    ///     The loader selector.
     /// </summary>
-    public class LoaderManager
+    public class LoaderManager : ILoaderManager
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoaderManager"/> class.
+        ///     Initializes a new instance of the <see cref="LoaderManager" /> class.
         /// </summary>
+        [InjectionConstructor]
         public LoaderManager()
         {
             this.Loaders = new List<TradeLoaderBase>();
             this.Initialize();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LoaderManager"/> class.
+        /// </summary>
+        /// <param name="loaders">
+        /// The loaders.
+        /// </param>
         public LoaderManager(List<TradeLoaderBase> loaders)
         {
             this.Loaders = loaders;
         }
 
         /// <summary>
-        /// Gets the loaders.
+        ///     Gets the loaders.
         /// </summary>
-        public List<TradeLoaderBase> Loaders { get; internal set; }
+        public List<TradeLoaderBase> Loaders { get; private set; }
 
         /// <summary>
         /// The get trade loader.
@@ -56,7 +63,7 @@ namespace AssignmentLuxoft.Loaders
         /// </exception>
         public TradeLoaderBase GetTradeLoader(string sourceType)
         {
-            foreach (var tradeLoader in Loaders)
+            foreach (var tradeLoader in this.Loaders)
             {
                 if (tradeLoader.IsActive
                     && tradeLoader.SupportedSourceType.Equals(sourceType, StringComparison.InvariantCultureIgnoreCase))
@@ -65,9 +72,12 @@ namespace AssignmentLuxoft.Loaders
                 }
             }
 
-            throw new NotSupportedException("Source type: " + sourceType + " is not supported");
+            return null;
         }
 
+        /// <summary>
+        /// The initialize.
+        /// </summary>
         internal void Initialize()
         {
             this.Loaders.Clear();
@@ -77,7 +87,7 @@ namespace AssignmentLuxoft.Loaders
             this.Loaders.Add(new TextTradeLoader());
             this.Loaders.Add(new XmlTradeLoader());
 
-            //Loading external loaders
+            // Loading external loaders
             var relativePath = ConfigurationManager.AppSettings["ExternalLoadersRelativePath"];
             var fullPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), relativePath);
 
@@ -88,15 +98,15 @@ namespace AssignmentLuxoft.Loaders
 
                 foreach (var dllPath in dllPaths)
                 {
-                    //Load types and iterate over them to find correct ones
+                    // Load types and iterate over them to find correct ones
                     var assembly = Assembly.LoadFrom(dllPath);
                     var types = assembly.GetTypes();
-                    
+
                     foreach (var type in types)
                     {
-                        if (type.IsClass && type.IsSubclassOf(typeof (TradeLoaderBase)))
+                        if (type.IsClass && type.IsSubclassOf(typeof(TradeLoaderBase)))
                         {
-                           this.Loaders.Add((TradeLoaderBase) Activator.CreateInstance(type));
+                            this.Loaders.Add((TradeLoaderBase)Activator.CreateInstance(type));
                         }
                     }
                 }
