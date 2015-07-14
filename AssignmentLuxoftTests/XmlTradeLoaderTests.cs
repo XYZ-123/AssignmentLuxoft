@@ -20,7 +20,6 @@ namespace AssignmentLuxoftTests
         public XmlTradeLoaderTests()
         {
             sut = new XmlTradeLoader();
-            
         }
 
         [Fact]

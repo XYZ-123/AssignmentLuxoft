@@ -6,7 +6,7 @@
     x:Class="AssignmentLuxoft.MainWindow"
         Title="TradeViewer" Height="633.447" Width="700" d:DataContext="{d:DesignInstance Type=local:TradeViewModel}">
     <Grid>
-        <Label Content="{Binding DirectoryToWatch}" HorizontalAlignment="Right" Margin="0,49,474,0" VerticalAlignment="Top" Width="191" Cursor="Arrow" Height="31" FontSize="{StaticResource FontSize}" Grid.ColumnSpan="2"/>
+        <Label Content="{Binding DirectoryToWatch}" HorizontalAlignment="Right" Margin="0,49,488,0" VerticalAlignment="Top" Width="177" Cursor="Arrow" Height="31" FontSize="{StaticResource FontSize}"/>
 
         <ListView  ToolTip="{StaticResource LoadersListToolTip}"  ItemsSource="{Binding Loaders}" Height="169" Margin="517,44,21,0" VerticalAlignment="Top" Width="154" FontSize="{StaticResource FontSize}">
             <ItemsControl.ItemsPanel>
@@ -45,7 +45,7 @@
         </ListView>
 
         <Label Content="{StaticResource FrequencyString}" HorizontalAlignment="Left" Margin="22,90,0,0" VerticalAlignment="Top" Width="182"  FontSize="{StaticResource FontSize}"/>
-        <Label Content="{Binding CheckFrequency}" ContentStringFormat="{}{0} ms" HorizontalAlignment="Left" Margin="22,129,0,0" VerticalAlignment="Top" Width="196"  FontSize="{StaticResource FontSize}"/>
+        <Label Content="{Binding CheckFrequency}" ContentStringFormat="{}{0} ms" HorizontalAlignment="Left" Margin="22,129,0,0" VerticalAlignment="Top" Width="177"  FontSize="{StaticResource FontSize}"/>
         <Label Content="{StaticResource FoundFileString}" HorizontalAlignment="Left" Margin="204,5,0,0" VerticalAlignment="Top" Width="196"  FontSize="{StaticResource FontSize}"/>
 
 
